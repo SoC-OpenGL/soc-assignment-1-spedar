@@ -3,17 +3,17 @@
 #include<cmath>
 #include<iostream>
 using namespace std ;
-const int nvertices = 50 ;
+const int nvertices = 100 ;
                                                                 /*update here */
-float points[200] ;// no of vertices times 2(x,y)* 2(ring) ... (x4)
-unsigned int ind[300]; // no of vertives times*6                  
+float points[400] ;// no of vertices times 2(x,y)* 2(ring) ... (x4)
+unsigned int ind[600]; // no of vertives times*6                  
 int m = nvertices*4, n = nvertices*6 ;
 void genpoint(float* points, unsigned int* ind ){
   for (int i = 0; i<(m); i = i+4){                              
-    points[i]   = 0.3 * cos(2*M_PI/nvertices*i/4) * (1 + 0.2*cos(M_PI/5*i) ) ;
-    points[i+1] = 0.3 * sin(2*M_PI/nvertices*i/4) * (1 + 0.2*cos(M_PI/5*i) ) ;
-    points[i+2] = 0.5 * cos(2*M_PI/nvertices*i/4) * (1 + 0.5*sin(M_PI/5*i) ) ;
-    points[i+3] = 0.5 * sin(2*M_PI/nvertices*i/4) * (1 + 0.5*sin(M_PI/5*i) ) ;
+    points[i]   = 0.25 * cos(2*M_PI/nvertices*i/4) * (1 + 0.2*cos(M_PI/nvertices/2*i*5+ M_PI/6) ) ;
+    points[i+1] = 0.25 * sin(2*M_PI/nvertices*i/4) * (1 + 0.2*cos(M_PI/2/nvertices*i*5+ M_PI/6) ) ;
+    points[i+2] = 0.5 * cos(2*M_PI/nvertices*i/4) * (1 + 0.35*sin(M_PI/2/nvertices*i*5) ) ;
+    points[i+3] = 0.5 * sin(2*M_PI/nvertices*i/4) * (1 + 0.35*sin(M_PI/2/nvertices*i*5) ) ;
   }
   unsigned int o = 0, k = nvertices*2;
   for (int i = 0; i<n ; i=i+6){                                  
@@ -162,4 +162,5 @@ int main(int argc, char** argv)
   glfwTerminate();
   return 0;
 }
+
 
